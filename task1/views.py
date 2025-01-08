@@ -3,12 +3,21 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render
 from task1.forms import UserRegister
 
-from .models import Buyer, Game
+from .models import Buyer, Game, News
 from django.core.paginator import Paginator
 
 # Create your views here.
 def platform_view(request):
     return render(request, 'fouth_task/menu.html')
+
+def news(request):
+    news_list = News.objects.all().order_by('-date')
+    paginator = Paginator(news_list, 10)  # Показываем 10 новостей на странице
+
+    page_number = request.GET.get('page')
+    news_page = paginator.get_page(page_number)
+
+    return render(request, 'fifth_task/news.html', {'news': news_page})
 
 
 def shop_view(request):

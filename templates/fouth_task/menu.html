@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+    <h1>{% block pagename %}Главная страница{% endblock %}</h1>
+    <header>
+        <nav>
+            <ul>
+                {% block menu %}
+                <li><a href="{% url 'menu' %}">Главная</a></li>
+                <li><a href="{% url 'shop' %}">Магазин</a></li>
+                <li><a href="{% url 'cart' %}">Корзина</a></li>
+                {% endblock %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Контент страницы будет здесь -->
+
+        {% endblock %}
+    </main>
+
+</body>
+</html>

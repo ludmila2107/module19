@@ -1,0 +1,17 @@
+{% extends 'fouth_task/menu.html' %}
+
+{% block pagename %}Игры{% endblock %}
+
+
+{% block content %}
+{% for game in games %}
+<div class="card-body">
+    <h5 class="card-title">{{ game.title }}</h5>
+    <p class="card-text">{{ game.description }}</p>
+    <p class="card-text">Цена: {{ game.cost }}</p>
+    <button>Купить</button>
+</div>
+
+{% endfor %}
+
+{% endblock %}
